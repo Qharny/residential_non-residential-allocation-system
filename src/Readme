@@ -1,0 +1,81 @@
+src/
+├── components/
+│   ├── common/
+│   │   ├── Header.js (Contains the application header component)
+│   │   ├── Footer.js (Contains the application footer component)
+│   │   ├── Sidebar.js (Contains the sidebar navigation component)
+│   │   ├── Loader.js (Contains a reusable loader/spinner component)
+│   │   └── ...
+│   ├── auth/
+│   │   ├── Login.js (Contains the login form component)
+│   │   ├── Signup.js (Contains the signup form component)
+│   │   ├── ForgotPassword.js (Contains the forgot password form component)
+│   │   └── ...
+│   ├── residential/
+│   │   ├── ApplicationForm.js (Contains the residential application form component)
+│   │   ├── ApplicationStatus.js (Displays the status of a user's residential application)
+│   │   ├── ApartmentDetails.js (Displays details of an allocated apartment)
+│   │   ├── PaymentHistory.js (Shows the payment history for residential rent)
+│   │   └── ...
+│   ├── non-residential/
+│   │   ├── BookingForm.js (Contains the form for booking non-residential spaces)
+│   │   ├── BookingStatus.js (Displays the status of a user's non-residential booking)
+│   │   ├── EventCalendar.js (Shows a calendar view of upcoming non-residential events)
+│   │   ├── EventDetails.js (Displays details of a specific non-residential event)
+│   │   └── ...
+│   ├── admin/
+│   │   ├── UserManagement.js (Allows admin to manage users and roles)
+│   │   ├── ApplicationReview.js (Allows admin/committee to review residential applications)
+│   │   ├── BookingReview.js (Allows admin/committee to review non-residential bookings)
+│   │   ├── Reports.js (Displays various reports and analytics)
+│   │   └── ...
+│   └── ...
+├── pages/
+│   ├── HomePage.js (The main landing page component)
+│   ├── ResidentialPage.js (Page component for residential allocation)
+│   ├── NonResidentialPage.js (Page component for non-residential booking)
+│   ├── AdminDashboard.js (Admin dashboard component)
+│   ├── CommitteeDashboard.js (Committee dashboard component)
+│   ├── LecturerDashboard.js (Lecturer dashboard component)
+│   ├── StudentDashboard.js (Student dashboard component)
+│   ├── ExternalUserDashboard.js (External user dashboard component)
+│   └── ...
+├── services/
+│   ├── authService.js (Functions for handling authentication and authorization)
+│   ├── residentialService.js (Functions for handling residential allocation)
+│   ├── nonResidentialService.js (Functions for handling non-residential booking)
+│   ├── adminService.js (Functions for handling admin operations)
+│   ├── paymentService.js (Functions for handling payment integration)
+│   └── ...
+├── utils/
+│   ├── formatters.js (Utility functions for formatting data)
+│   ├── validators.js (Utility functions for validating user input)
+│   ├── constants.js (Constants used across the application)
+│   └── ...
+├── hooks/
+│   ├── useAuth.js (Custom hook for authentication and authorization)
+│   ├── useResidentialData.js (Custom hook for fetching and managing residential data)
+│   ├── useNonResidentialData.js (Custom hook for fetching and managing non-residential data)
+│   └── ...
+├── context/
+│   ├── AuthContext.js (Context for managing authentication and authorization state)
+│   ├── ResidentialContext.js (Context for managing residential data state)
+│   ├── NonResidentialContext.js (Context for managing non-residential data state)
+│   └── ...
+├── styles/
+│   ├── global.scss (Global styles for the application)
+│   ├── variables.scss (SCSS variables for colors, typography, etc.)
+│   ├── mixins.scss (SCSS mixins for reusable styles)
+│   └── ...
+├── assets/
+│   ├── images/
+│   │   ├── logo.png (Application logo)
+│   │   └── ...
+│   └── icons/
+│       ├── home.svg (Home icon)
+│       ├── user.svg (User icon)
+│       └── ...
+├── App.js (The root component of the React application)
+├── index.js (The entry point of the React application)
+├── routes.js (File for defining the application routes)
+└── ...
