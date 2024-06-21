@@ -7,7 +7,7 @@ import "./hero.css";
 import Footer from "../common/footer";
 import serviceImage from "../../assets/images/bed.jpg"
 import Header from "../common/header";
-// import Dashboard from "../dashboard/dashboard";
+import Dashboard from "../dashboard/dashboard";
 
 const HeroPage = () => {
   return (
@@ -19,7 +19,7 @@ const HeroPage = () => {
           <p>Book your rooms and events here</p>
           <button onClick={
             () => {
-              window.location.href = "../dashboard/dashboard";
+              window.location.href = {Dashboard};
             }
           } >Get Started</button>
         </div>
