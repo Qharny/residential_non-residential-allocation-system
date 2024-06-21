@@ -5,15 +5,23 @@ import aboutImage from "../../assets/images/hotel.jpg";
 import contactImage from "../../assets/images/contact.png";
 import "./hero.css";
 import Footer from "../common/footer";
+import serviceImage from "../../assets/images/bed.jpg"
+import Header from "../common/header";
+// import Dashboard from "../dashboard/dashboard";
 
 const HeroPage = () => {
   return (
     <div>
+      <Header />
       <section className="hero">
         <div className="content">
           <h1>Residential and Non-Residential Allocation System</h1>
           <p>Book your rooms and events here</p>
-          <button>Get Started</button>
+          <button onClick={
+            () => {
+              window.location.href = "../dashboard/dashboard";
+            }
+          } >Get Started</button>
         </div>
         <div className="Hero_image">
           <img src={heroImage} alt="Hero_Image" />
@@ -42,7 +50,7 @@ const HeroPage = () => {
             <div className="col">
               <div className="card service-card">
                 <img
-                  src="path/to/image1.jpg"
+                  src={serviceImage}
                   className="card-img-top"
                   alt="Image1"
                 />

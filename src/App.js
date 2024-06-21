@@ -1,13 +1,22 @@
 // import logo from './logo.svg';
-import './App.css';
-import Header from './components/common/header';
-import HeroPage from './components/hero/hero';
+import "./App.css";
+import HeroPage from "./components/hero/hero";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
+
+function HomeRouter() {
+  return (
     <div className="App">
-      <Header/>
-      <HeroPage/>
+      <HeroPage />
     </div>
   );
 }
