@@ -1,167 +1,144 @@
-/* eslint-disable jsx-a11y/iframe-has-title */
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import Header from "../common/header";
+import Footer from "../common/footer";
 import heroImage from "../../assets/images/big.jpg";
 import aboutImage from "../../assets/images/hotel.jpg";
 import contactImage from "../../assets/images/contact.png";
+import serviceImage from "../../assets/images/bed.jpg";
 import "./hero.css";
-import Footer from "../common/footer";
-import serviceImage from "../../assets/images/bed.jpg"
-import Header from "../common/header";
-import Dashboard from "../dashboard/dashboard";
 
 const HeroPage = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('../dashboard/dashboard');
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Add form submission logic here
+  };
+
   return (
     <div>
       <Header />
-      <section className="hero">
-        <div className="content">
-          <h1>Residential and Non-Residential Allocation System</h1>
-          <p>Book your rooms and events here</p>
-          <button onClick={
-            () => {
-              window.location.href = {Dashboard};
-            }
-          } >Get Started</button>
-        </div>
-        <div className="Hero_image">
-          <img src={heroImage} alt="Hero_Image" />
-        </div>
-      </section>
-      <section className="about">
-        <div className="content">
-          <h1>About Us</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
-            facilisi. Nulla facilisi. Nulla facilisi. Nulla facilisi. Nulla
-            facilisi. Nulla facilisi. Nulla facilisi. Nulla facilisi. Nulla
-            facilisi. Nulla facilisi. Nulla facilisi. Nulla facilisi. Nulla
-            facilisi. Nulla facilisi. Nulla facilisi. Nulla facilisi. Nulla
-          </p>
-        </div>
-        <div className="image">
-          <img src={aboutImage} alt="Hero_Image" />
-        </div>
-      </section>
-
-      <section className="service py-5">
-        <div className="container">
-          <h2 className="text-center mb-4">Our Services</h2>
-          <div className="row row-cols-1 row-cols-md-4 g-4">
-            <div className="col">
-              <div className="card service-card">
-                <img
-                  src={serviceImage}
-                  className="card-img-top"
-                  alt="Image1"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">Service 1</h5>
-                  <p className="card-text">Brief description of Service 1.</p>
-                </div>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card service-card">
-                <img
-                  src="path/to/image2.jpg"
-                  className="card-img-top"
-                  alt="Image2"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">Service 2</h5>
-                  <p className="card-text">Brief description of Service 2.</p>
-                </div>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card service-card">
-                <img
-                  src="path/to/image2.jpg"
-                  className="card-img-top"
-                  alt="Image3"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">Service 2</h5>
-                  <p className="card-text">Brief description of Service 2.</p>
-                </div>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card service-card">
-                <img
-                  src="path/to/image2.jpg"
-                  className="card-img-top"
-                  alt="Image4"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">Service 2</h5>
-                  <p className="card-text">Brief description of Service 2.</p>
-                </div>
-              </div>
-            </div>
-            <div className="col">
-              <div className="card service-card">
-                <img
-                  src="path/to/image2.jpg"
-                  className="card-img-top"
-                  alt="Image5"
-                />
-                <div className="card-body">
-                  <h5 className="card-title">Service 2</h5>
-                  <p className="card-text">Brief description of Service 2.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="map">
-        <iframe
-          src="https://www.google.com/maps/place/University+of+Mines+and+Technology/@5.2980343,-2.0034982,17.86z/data=!4m6!3m5!1s0xfdd6e0e44a4c71b:0x370f8ff00a9cf057!8m2!3d5.2984262!4d-2.0012774!16s%2Fm%2F02pygf_?authuser=0&entry=ttu"
-          frameborder="0"
-        ></iframe>
-      </section>
-      <section class="contact" id="contact">
-
-  <h2 class="heading"><i class="fas fa-headset"></i> Get in <span>Touch</span></h2>
-
-  <div class="container">
-    <div class="content">
-      <div class="image-box">
-        <img draggable="false" src={contactImage} alt=""/>
-      </div>
-    <form id="contact-form">
-
-      <div class="form-group">
-        <div class="field">
-          <input type="text" name="name" placeholder="Name" required />
-          <i class='fas fa-user'></i>
-        </div>
-        <div class="field">
-          <input type="text" name="email" placeholder="Email" required />
-          <i class='fas fa-envelope'></i>
-        </div>
-        <div class="field">
-          <input type="text" name="phone" placeholder="Phone" />
-          <i class='fas fa-phone-alt'></i>
-        </div>
-        <div class="message">
-        <textarea placeholder="Message" name="message" required></textarea>
-        <i class="fas fa-comment-dots"></i>
-        </div>
-        </div>
-      <div class="button-area">
-        <button type="submit">
-          Submit <i class="fa fa-paper-plane"></i></button>
-      </div>
-    </form>
-  </div>
-  </div>
-</section>
-
-<Footer />
+      <main>
+        <HeroSection handleClick={handleClick} />
+        <AboutSection />
+        <ServiceSection />
+        <MapSection />
+        <ContactSection handleSubmit={handleSubmit} />
+      </main>
+      <Footer />
     </div>
   );
 };
+
+const HeroSection = ({ handleClick }) => (
+  <section className="hero">
+    <div className="content">
+      <h1>Residential and Non-Residential Allocation System</h1>
+      <p>Book your rooms and events here</p>
+      <button onClick={handleClick}>Get Started</button>
+    </div>
+    <div className="Hero_image">
+      <img src={heroImage} alt="Residential and Non-Residential Allocation System" />
+    </div>
+  </section>
+);
+
+const AboutSection = () => (
+  <section className="about">
+    <div className="content">
+      <h2>About Us</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+        facilisi. Nulla facilisi. Nulla facilisi. Nulla facilisi. Nulla
+        facilisi. Nulla facilisi. Nulla facilisi. Nulla facilisi. Nulla
+        facilisi. Nulla facilisi. Nulla facilisi. Nulla facilisi. Nulla
+        facilisi. Nulla facilisi. Nulla facilisi. Nulla facilisi. Nulla
+      </p>
+    </div>
+    <div className="image">
+      <img src={aboutImage} alt="About our services" />
+    </div>
+  </section>
+);
+
+const ServiceSection = () => (
+  <section className="service py-5">
+    <div className="container">
+      <h2 className="text-center mb-4">Our Services</h2>
+      <div className="row row-cols-1 row-cols-md-4 g-4">
+        {[1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+          <ServiceCard key={index} />
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const ServiceCard = () => (
+  <div className="col">
+    <div className="card service-card">
+      <img src={serviceImage} className="card-img-top" alt="Service" />
+      <div className="card-body">
+        <h5 className="card-title">Service</h5>
+        <p className="card-text">Brief description of the service.</p>
+      </div>
+    </div>
+  </div>
+);
+
+const MapSection = () => (
+  <section className="map">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.5283034471386!2d-2.003498184745297!3d5.298034296183941!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdd6e0e44a4c71b%3A0x370f8ff00a9cf057!2sUniversity%20of%20Mines%20and%20Technology!5e0!3m2!1sen!2sgh!4v1624451234567!5m2!1sen!2sgh"
+      title="University of Mines and Technology Location"
+      frameBorder="0"
+      allowFullScreen=""
+      loading="lazy"
+    ></iframe>
+  </section>
+);
+
+const ContactSection = ({ handleSubmit }) => (
+  <section className="contact" id="contact">
+    <h2 className="heading"><i className="fas fa-headset"></i> Get in <span>Touch</span></h2>
+    <div className="container">
+      <div className="content">
+        <div className="image-box">
+          <img src={contactImage} alt="Contact Us" />
+        </div>
+        <form id="contact-form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <div className="field">
+              <input type="text" name="name" placeholder="Name" required />
+              <i className='fas fa-user'></i>
+            </div>
+            <div className="field">
+              <input type="email" name="email" placeholder="Email" required />
+              <i className='fas fa-envelope'></i>
+            </div>
+            <div className="field">
+              <input type="tel" name="phone" placeholder="Phone" />
+              <i className='fas fa-phone-alt'></i>
+            </div>
+            <div className="message">
+              <textarea placeholder="Message" name="message" required></textarea>
+              <i className="fas fa-comment-dots"></i>
+            </div>
+          </div>
+          <div className="button-area">
+            <button type="submit">
+              Submit <i className="fa fa-paper-plane"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+);
 
 export default HeroPage;

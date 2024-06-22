@@ -1,14 +1,18 @@
-// import logo from './logo.svg';
 import React from 'react';
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HeroPage from './components/hero/hero';
-// import { BrowserRouter, Route, Routes} from 'react-router-dom';
+import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <HeroPage/>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<HeroPage />} />
+          {/* Add more routes here as needed */}
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
