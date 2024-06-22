@@ -6,6 +6,7 @@ import heroImage from "../../assets/images/big.jpg";
 import aboutImage from "../../assets/images/hotel.jpg";
 import contactImage from "../../assets/images/contact.png";
 import serviceImage from "../../assets/images/bed.jpg";
+
 import "./hero.css";
 
 const HeroPage = () => {
