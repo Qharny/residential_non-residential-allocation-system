@@ -1,74 +1,34 @@
+// creating dashboard
+
 import React from "react";
-import Sidebar from "../common/sidebar";
-import Header from "../common/header";
+// import { useNavigate } from "react-router-dom";
 import Footer from "../common/footer";
-import { Link } from "react-router-dom";
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-import { useTranslation } from "react-i18next";
-import { useAuth } from "../../context/AuthContext";
+import Sidebar from "../common/sidebar";
 import "./dashboard.css";
+// import { Button, Sidebar } from "semantic-ui-react";
+// import { useTranslation } from "react-i18next";
+import profileImage from '../../assets/images/profile.png'
 
-import { useState, useEffect } from "react";
-import { db } from "../../firebase";
-import { collection, getDocs, query, where } from "firebase/firestore";
 
-const Dashboard = () => {
-  const { t } = useTranslation();
-  const { user } = useAuth();
-  const [modal, setModal] = useState(false);
-  const [rooms, setRooms] = useState([]);
+const Dashboard = ()=> {
+  return(
+    <div className="mainPage">
 
-  const toggle = () => setModal(!modal);
-  useEffect(() => {
-    const fetchRooms = async () => {
-      const q = query(
-        collection(db, "rooms"),
-        where("status", "==", "available")
-      );
-      const querySnapshot = await getDocs(q);
-      const data = querySnapshot.docs.map((doc) => doc.data());
-      setRooms(data);
-    };
-
-    fetchRooms();
-  }, []);
-
-  return (
-    <div>
-      <Header />
-      <Sidebar />
-      <main>
-        <section className="dashboard">
-          <div className="content">
-            <h2>{t("dashboard.title")}</h2>
-            <p>{t("dashboard.description")}</p>
-            <Button color="primary" onClick={toggle}>
-              {t("dashboard.bookNow")}
-            </Button>
-            <Modal isOpen={modal} toggle={toggle}>
-              <ModalHeader toggle={toggle}>
-                {t("dashboard.bookNow")}
-              </ModalHeader>
-              <ModalBody>
-                <h3>{t("dashboard.selectRoom")}</h3>
-                <ul>
-                  {rooms.map((room) => (
-                    <li key={room.id}>
-                      <Link to={`/room/${room.id}`}>{room.name}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </ModalBody>
-              <ModalFooter>
-                <Button color="secondary" onClick={toggle}>
-                  {t("dashboard.cancel")}
-                </Button>
-              </ModalFooter>
-            </Modal>
+        <header>
+          <div className="profile">
+            <img src={profileImage} alt="profile-image" />
+            <h2>John Doe</h2>
           </div>
-        </section>
+        </header>
+      <div className="aside">
+        <Sidebar/>
+      </div>
+
+      <main>
       </main>
       <Footer />
     </div>
-  );
-};
+  )
+}
+
+export default Dashboard;

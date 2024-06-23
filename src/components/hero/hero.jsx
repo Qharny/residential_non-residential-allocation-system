@@ -6,14 +6,13 @@ import heroImage from "../../assets/images/big.jpg";
 import aboutImage from "../../assets/images/hotel.jpg";
 import contactImage from "../../assets/images/contact.png";
 import serviceImage from "../../assets/images/bed.jpg";
-
 import "./hero.css";
 
 const HeroPage = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate('../dashboard/dashboard');
+    navigate('/dashboard');
   };
 
   const handleSubmit = (e) => {

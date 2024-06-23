@@ -1,0 +1,20 @@
+
+.sidebar.ui.vertical.menu {
+    width: 250px;
+    height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .sidebar .logo {
+    padding: 20px;
+    text-align: center;
+    background-color: #f8f9fa;
+  }
+  
+  .sidebar .logo .icon {
+    margin-bottom: 10px;
+  }
+  
+  .sidebar .item {
+    padding: 15px 20px;
+  }

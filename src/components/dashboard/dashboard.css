@@ -1,66 +1,46 @@
-/* css for dashboard*/
-.dashboard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+  font-family: Arial, sans-serif;
+}
+
+.mainPage {
+  display: grid;
+  grid-template:
+    "b b a" auto
+    "b b c" 2ch
+    "b b c" 1em / 20% 20px 1fr;
+  grid-gap: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
   height: 100vh;
-  background-color: #f5f5f5;
+  overflow-y: hidden;
 }
-.dashboard h1 {
-  font-size: 3rem;
-  color: #000;
-}
-.dashboard p {
-  font-size: 1.5rem;
-  color: #000;
-}
-.dashboard button {
-  padding: 10px 20px;
-  background-color: #000;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-.dashboard .dashboard_image {
-  height: 70vh;
-  width: 60%;
-  img {
-    height: 100%;
-    width: 100%;
-  }
-}
-.dashboard .dashboard_content {
+
+header {
+  grid-area: a;
+  width: 100%;
+  height: 70px;
+  background-color: #333;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  padding: 0 2rem;
-}
-.dashboard .dashboard_content h1 {
-  font-size: 3rem;
-  color: #000;
-}
-.dashboard .dashboard_content p {
-  font-size: 1.5rem;
-  color: #000;
-}
-.dashboard .dashboard_content button {
-  padding: 10px 20px;
-  background-color: #000;
+  align-items: center;
   color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  cursor: pointer;
+  font-size: 40px;
+  position: fixed;
 }
-.dashboard .dashboard_content .dashboard_image {
-  height: 70vh;
-  width: 60%;
-  img {
-    height: 100%;
-    width: 100%;
-  }
+
+.aside{
+  grid-area: b;
+}
+
+main{
+  grid-area: c;
+  overflow-y: auto;
+}
+
+Footer{
+  height: 100px;
+  position: fixed;
 }
