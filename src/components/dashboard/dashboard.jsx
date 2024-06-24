@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Header } from './components/Header.jsx';
-import { Sidebar } from './components/Sidebar.jsx/index.js';
-import { Footer } from './components/Footer.jsx/index.js';
-import { ResidentialContent } from './components/ResidentialContent.jsx/index.js';
-import { NonResidentialContent } from './components/NonResidentialContent.jsx/index.js';
+import { Sidebar } from './components/Sidebar.jsx';
+import { Footer } from './components/Footer.jsx';
+import { ResidentialContent } from './components/ResidentialContent.jsx';
+import { NonResidentialContent } from './components/NonResidentialContent.jsx';
 import './Dashboard.css';
 
 const Dashboard = () => {

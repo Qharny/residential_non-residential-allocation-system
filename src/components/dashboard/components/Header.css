@@ -1,0 +1,32 @@
+/* Header.css */
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 10px 20px;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+  }
+  
+  .profile-picture {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .profile-name {
+    font-size: 16px;
+    color: #343a40;
+  }
+  
