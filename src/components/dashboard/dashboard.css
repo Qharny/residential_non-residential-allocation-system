@@ -4,7 +4,7 @@
   box-sizing: 0;
   font-family: Arial, sans-serif;
 }
-
+/* 
 .mainPage {
   display: grid;
   grid-template:
@@ -43,4 +43,25 @@ main{
 Footer{
   height: 100px;
   position: fixed;
+} */
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.dashboard-content {
+  display: flex;
+  flex: 1;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.main-content.expanded {
+  margin-left: 60px; /* Adjust based on collapsed sidebar width */
 }

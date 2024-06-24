@@ -1,34 +1,40 @@
-// creating dashboard
+import React, { useState } from 'react';
+import { Header } from './components/Header.jsx';
+import { Sidebar } from './components/Sidebar.jsx/index.js';
+import { Footer } from './components/Footer.jsx/index.js';
+import { ResidentialContent } from './components/ResidentialContent.jsx/index.js';
+import { NonResidentialContent } from './components/NonResidentialContent.jsx/index.js';
+import './Dashboard.css';
 
-import React from "react";
-// import { useNavigate } from "react-router-dom";
-import Footer from "../common/footer";
-import Sidebar from "../common/sidebar";
-import "./dashboard.css";
-// import { Button, Sidebar } from "semantic-ui-react";
-// import { useTranslation } from "react-i18next";
-import profileImage from '../../assets/images/profile.png'
+const Dashboard = () => {
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [activeContent, setActiveContent] = useState('residential');
 
+  const toggleSidebar = () => {
+    setIsSidebarCollapsed(!isSidebarCollapsed);
+  };
 
-const Dashboard = ()=> {
-  return(
-    <div className="mainPage">
+  const handleContentChange = (content) => {
+    setActiveContent(content);
+  };
 
-        <header>
-          <div className="profile">
-            <img src={profileImage} alt="profile-image" />
-            <h2>John Doe</h2>
-          </div>
-        </header>
-      <div className="aside">
-        <Sidebar/>
+  return (
+    <div className="dashboard">
+      <Header />
+      <div className="dashboard-content">
+        <Sidebar 
+          isCollapsed={isSidebarCollapsed} 
+          onToggle={toggleSidebar}
+          onContentChange={handleContentChange}
+          activeContent={activeContent}
+        />
+        <main className={`main-content ${isSidebarCollapsed ? 'expanded' : ''}`}>
+          {activeContent === 'residential' ? <ResidentialContent /> : <NonResidentialContent />}
+        </main>
       </div>
-
-      <main>
-      </main>
       <Footer />
     </div>
-  )
-}
+  );
+};
 
 export default Dashboard;
