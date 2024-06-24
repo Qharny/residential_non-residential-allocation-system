@@ -12,6 +12,7 @@ const HeroPage = () => {
   const navigate = useNavigate();
 
   const handleClick = () => {
+    console.log('Navigate to dashboard');
     navigate('/dashboard');
   };
 
