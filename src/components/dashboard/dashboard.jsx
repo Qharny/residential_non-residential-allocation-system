@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Header } from './components/Header.jsx';
 import { Sidebar } from './components/Sidebar.jsx';
-import { Footer } from './components/Footer.jsx';
-import { ResidentialContent } from './components/ResidentialContent.jsx';
+import { Footer } from '../common/footer.jsx';
+import ResidentialContent from './components/ResidentialContent.jsx';
 import { NonResidentialContent } from './components/NonResidentialContent.jsx';
 import './Dashboard.css';
 
@@ -18,20 +18,20 @@ const Dashboard = () => {
     setActiveContent(content);
   };
 
-  return (
+   return (
     <div className="dashboard">
       <Header />
-      <div className="dashboard-content">
+      {/* <div className="content-wrapper"> */}
         <Sidebar 
           isCollapsed={isSidebarCollapsed} 
           onToggle={toggleSidebar}
           onContentChange={handleContentChange}
           activeContent={activeContent}
         />
-        <main className={`main-content ${isSidebarCollapsed ? 'expanded' : ''}`}>
+        <main className="main-content">
           {activeContent === 'residential' ? <ResidentialContent /> : <NonResidentialContent />}
         </main>
-      </div>
+      {/* </div> */}
       <Footer />
     </div>
   );

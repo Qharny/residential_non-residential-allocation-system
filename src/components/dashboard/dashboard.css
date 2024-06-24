@@ -1,67 +1,64 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: 0;
-  font-family: Arial, sans-serif;
-}
-/* 
-.mainPage {
-  display: grid;
-  grid-template:
-    "b b a" auto
-    "b b c" 2ch
-    "b b c" 1em / 20% 20px 1fr;
-  grid-gap: 10px;
-  padding: 10px;
-  background-color: #f0f0f0;
-  height: 100vh;
-  overflow-y: hidden;
-}
-
-header {
-  grid-area: a;
-  width: 100%;
-  height: 70px;
-  background-color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-size: 40px;
-  position: fixed;
-}
-
-.aside{
-  grid-area: b;
-}
-
-main{
-  grid-area: c;
-  overflow-y: auto;
-}
-
-Footer{
-  height: 100px;
-  position: fixed;
-} */
-
 .dashboard {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
-.dashboard-content {
+.dashboard > header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #f8f9fa;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+/* .content-wrapper {
   display: flex;
   flex: 1;
+  margin-top: 60px;
+} */
+
+.sidebar {
+  position: fixed;
+  top: 60px; /* Adjust this value to match your header's height */
+  bottom: 0;
+  width: 250px;
+  background-color: #343a40;
+  color: #fff;
+  overflow-y: auto;
 }
 
 .main-content {
   flex: 1;
+  margin-left: 250px; /* Adjust this value to match your sidebar's width */
   padding: 20px;
-  transition: margin-left 0.3s ease-in-out;
+  overflow-y: auto;
 }
 
-.main-content.expanded {
-  margin-left: 60px; /* Adjust based on collapsed sidebar width */
+/* Adjust for collapsed sidebar */
+.sidebar.collapsed {
+  width: 60px;
+}
+
+.sidebar.collapsed + .main-content {
+  margin-left: 60px;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+    margin-top: 60px; /* Adjust based on your header height */
+  }
+
+  .sidebar {
+    position: static;
+    width: 100%;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
 }

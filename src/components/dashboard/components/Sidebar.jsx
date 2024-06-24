@@ -1,11 +1,13 @@
 import React from 'react';
 import './Sidebar.css';
+import { FaBars, FaHome, FaBuilding } from 'react-icons/fa';
 
-export const Sidebar = ({ isCollapsed, onToggle, onContentChange, activeContent }) => {
+export const Sidebar = ({ isCollapsed, onToggle, activeContent, onContentChange }) => {
   return (
-    <aside className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
+    <div className={`sidebar ${isCollapsed ? 'collapsed' : ''}`}>
       <button className="toggle-btn" onClick={onToggle}>
-        {isCollapsed ? '>' : '<'}
+        <FaBars />
+        {!isCollapsed && <span>Toggle Sidebar</span>}
       </button>
       <nav>
         <ul>
@@ -13,16 +15,18 @@ export const Sidebar = ({ isCollapsed, onToggle, onContentChange, activeContent 
             className={activeContent === 'residential' ? 'active' : ''}
             onClick={() => onContentChange('residential')}
           >
-            Residential
+            <FaHome />
+            <span>Residential</span>
           </li>
           <li 
             className={activeContent === 'non-residential' ? 'active' : ''}
             onClick={() => onContentChange('non-residential')}
           >
-            Non-Residential
+            <FaBuilding />
+            <span>Non-Residential</span>
           </li>
         </ul>
       </nav>
-    </aside>
+    </div>
   );
 };
